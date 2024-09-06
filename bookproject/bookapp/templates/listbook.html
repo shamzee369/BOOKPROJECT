@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>list of books</h1>
+<table class="border" padding="4">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th></th>
+            <th>Action</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    {% for book in books %}
+        <tr>
+            <td>{{book.title}}</td>
+            <td></td>
+            <td><a href="{% url 'detail' book.id %}" type="submit" class="btn btn-primary">Details</a>
+                <a href="{% url 'update' book.id %}" type="submit" class="btn btn-success">Update</a>
+                <a href="{% url 'delete' book.id %}"type="submit" class="btn btn-danger">Delete</a>
+                
+            </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+    
+    
+
+</table>
+
+<br><br>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
